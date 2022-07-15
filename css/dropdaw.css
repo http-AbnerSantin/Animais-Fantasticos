@@ -1,0 +1,45 @@
+[data-dropdow] {
+  position: relative;
+}
+[data-dropdow] .dropdow-menu {
+  display: none;
+}
+[data-dropdow]:hover .dropdow-menu,
+[data-dropdow].active .dropdow-menu {
+  display: block;
+  animation: show-up 0.3s forwards;
+}
+@keyframes show-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.dropdow-menu {
+  position: absolute;
+  background: #e54;
+  border: solid 2px #333;
+  z-index: 6;
+  top: 38px;
+}
+
+.dropdow-menu::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -10px;
+  width: 0px;
+  height: 0px;
+  border-bottom: 10px solid #e54;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.dropdow-menu li a:hover {
+  color: #fff;
+}
