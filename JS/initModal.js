@@ -1,4 +1,4 @@
- export default function initModal() {
+export default function initModal() {
   const btnAbrir = document.querySelector('[data-modal="abrir"]');
   const button = document.querySelector('.fechar');
   const modal = document.querySelector('.modal-container');

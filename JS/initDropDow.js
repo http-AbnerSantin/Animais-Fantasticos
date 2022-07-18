@@ -1,7 +1,7 @@
- export default function initDropDow() {
+export default function initDropDow() {
   const dropdowMenus = document.querySelectorAll('[data-dropdow]');
 
-   function outsideClick(element, events, callback) {
+  function outsideClick(element, events, callback) {
     const html = document.documentElement;
     const outside = 'data-outside';
 
@@ -35,24 +35,25 @@
       menu.addEventListener(userEvent, handleClick);
     });
   });
-  //menu Mobile
+
+  // menu Mobile
+
   function initMenuMobile() {
     const menuButton = document.querySelector('[data-menu="button"]');
     const menuList = document.querySelector('[data-menu="list"]');
     const eventos = ['click', 'touchstart'];
-    
+
     function openMenu() {
       menuList.classList.add('active');
       menuButton.classList.add('active');
-      
-        outsideClick(menuList, eventos, () => {
+
+      outsideClick(menuList, eventos, () => {
         menuList.classList.remove('active');
         menuButton.classList.remove('active');
       });
     }
-  
-  eventos.forEach((userEvent) => menuButton.addEventListener(userEvent, openMenu));
-  }
-  initMenuMobile()
 
+    eventos.forEach((userEvent) => menuButton.addEventListener(userEvent, openMenu));
+  }
+  initMenuMobile();
 }

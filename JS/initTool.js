@@ -1,4 +1,4 @@
-export default function initToolTip(){
+export default function initToolTip() {
   const tooltips = document.querySelectorAll('[data-tooltip]');
   const onMouseMove = {
     handleEvent(event) {
@@ -38,5 +38,5 @@ export default function initToolTip(){
 
   tooltips.forEach((item) => {
     item.addEventListener('mouseover', onMouseOver);
-  })
+  });
 }
