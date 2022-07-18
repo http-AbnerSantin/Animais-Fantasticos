@@ -1,5 +1,4 @@
 import animaScrool from './JS/initAnimaScroll';
-import initModal from './JS/initModal';
 import initToolTip from './JS/initTool';
 import initDropDow from './JS/initDropDow';
 import initAnimaNumeros from './JS/initNumeroAnimais';
@@ -8,6 +7,7 @@ import initFuncionamento from './JS/initHorarios';
 import ScrollSuave from './JS/initScroll';
 import Accordion from './JS/initAcordion';
 import TabNav from './JS/initTab';
+import Modal from './JS/initModal';
 
 const scrollsuave = new ScrollSuave('.js-menu a[href^="#"]');
 scrollsuave.init();
@@ -18,8 +18,10 @@ accordion.init();
 const tabnav = new TabNav('.js-tabmenu li', '.js-tabcontent section');
 tabnav.init();
 
+const modal = new Modal('[data-modal="abrir"]', '.fechar', '.modal-container');
+modal.init();
+
 animaScrool();
-initModal();
 initToolTip();
 initDropDow();
 initAnimaNumeros();
