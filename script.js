@@ -1,13 +1,14 @@
 import animaScrool from './JS/initAnimaScroll';
 import initDropDow from './JS/initDropDow';
 import initAnimaNumeros from './JS/initNumeroAnimais';
-import initBC from './JS/initBitCoin';
+import fetchBC from './JS/initBitCoin';
 import initFuncionamento from './JS/initHorarios';
 import ScrollSuave from './JS/initScroll';
 import Accordion from './JS/initAcordion';
 import TabNav from './JS/initTab';
 import Modal from './JS/initModal';
 import ToolTip from './JS/initTool';
+// import fetchBC from './JS/initBitCoin';
 
 const scrollsuave = new ScrollSuave('.js-menu a[href^="#"]');
 scrollsuave.init();
@@ -24,8 +25,9 @@ modal.init();
 const tooltip = new ToolTip('[data-tooltip]');
 tooltip.init();
 
+initAnimaNumeros();
+fetchBC('https://blockchain.info/ticker', '.btc-preco');
+
 animaScrool();
 initDropDow();
-initAnimaNumeros();
-initBC();
 initFuncionamento();
