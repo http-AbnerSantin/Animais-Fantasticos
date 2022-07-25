@@ -3,22 +3,41 @@ export default class AnimaScrool {
     this.sections = document.querySelectorAll(sections);
     this.windowMetade = window.innerHeight * 0.6;
 
-    this.ScrollAnima = this.ScrollAnima.bind(this);
+    this.checkDistance = this.checkDistance.bind(this);
   }
 
-  ScrollAnima() {
-    this.sections.forEach((section) => {
-      const sectionTop = section.getBoundingClientRect().top - this.windowMetade;
+  getDistance() {
+    this.distance = [...this.sections].map((section) => {
+      const offset = section.offsetTop;
+      return {
+        element: section,
+        offset: Math.floor(offset - this.windowMetade),
+      };
+    });
+  }
 
-      if (sectionTop < 0) {
-        section.classList.add('ativo');
-      } else if (section.classList.contains('ativo')) {
-        section.classList.remove('ativo');
+  checkDistance() {
+    this.distance.forEach((item) => {
+      if (window.pageYOffset > item.offset) {
+        item.element.classList.add('ativo');
+      } else if (item.element.classList.contains('ativo')) {
+        item.element.classList.remove('ativo');
       }
     });
   }
 
   init() {
-    window.addEventListener('scroll', this.ScrollAnima);
+    if (this.sections.length) {
+      this.getDistance();
+      this.checkDistance();
+      window.addEventListener('scroll', this.checkDistance);
+    } else {
+      window.alert('erro');
+    }
+    return this;
+  }
+
+  stop() {
+    window.removeEventListener('scroll', this.checkDistance);
   }
 }
