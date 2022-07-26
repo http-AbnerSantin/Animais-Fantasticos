@@ -1,7 +1,7 @@
 import initDropDow from './JS/initDropDow';
 import initAnimaNumeros from './JS/initNumeroAnimais';
 import fetchBC from './JS/initBitCoin';
-import initFuncionamento from './JS/initHorarios';
+import Funcionamento from './JS/initHorarios';
 import ScrollSuave from './JS/initScroll';
 import Accordion from './JS/initAcordion';
 import TabNav from './JS/initTab';
@@ -31,4 +31,6 @@ const scrollAnima = new AnimaScroll('.js-scroll');
 scrollAnima.init();
 
 initDropDow();
-initFuncionamento();
+
+const funcionamento = new Funcionamento('[data-semana]', 'ativado');
+funcionamento.init();
