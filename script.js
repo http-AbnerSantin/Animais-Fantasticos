@@ -8,6 +8,7 @@ import TabNav from './JS/initTab';
 import Modal from './JS/initModal';
 import ToolTip from './JS/initTool';
 import AnimaScroll from './JS/initAnimaScroll';
+import { SlideNav } from './JS/slide';
 
 const scrollsuave = new ScrollSuave('.js-menu a[href^="#"]');
 scrollsuave.init();
@@ -34,3 +35,8 @@ initDropDow();
 
 const funcionamento = new Funcionamento('[data-semana]', 'ativado');
 funcionamento.init();
+
+const slide = new SlideNav('.slide', '.wrapper');
+slide.init();
+
+slide.addControl('.custom-controls');
